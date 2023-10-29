@@ -27,6 +27,7 @@ import q6 from '../assets/q6.png'
 import quality from '../assets/quality.png'
 import Product3 from '../components/Product3'
 import Product4 from '../components/Product4'
+import Product5 from '../components/Product5'
 
 
 const Home = () => {
@@ -130,13 +131,13 @@ const Home = () => {
           <Product4/>
          <div>
           <Flex className='justify-between'>
-          <SubHeading text='Featured Products' className='pb-11'/>
+          <SubHeading text='Featured Products' className='pb-10'/>
           <p className='text-2xl text-third font-normal font-pop'>View All</p>
           </Flex>
           <Flex className='gap-x-8'>
-            <Product3/>
-            <Product3/>
-            <Product3/>
+            <Product3 heading="Wireless Microphone"/>
+            <Product3 heading="Smart Watch New Series"/>
+            <Product3 heading="Camera HD + Lens"/>
           </Flex>
 
          </div>
@@ -145,6 +146,23 @@ const Home = () => {
       
     </Section>
     {/* Feature Product end*/}
+    {/* Top Product start */}
+    <Section className='py-40'>
+      <Container>
+        <Flex className='justify-between pb-8'>
+          <SubHeading text="Top Rated Product"/>
+          <p className='text-2xl text-third font-normal font-pop'>View All</p>
+        </Flex>
+        <Flex className='justify-between pb-5'>
+          <Product5 heading='BsFillHeartFill'/>
+          <Product5 heading='Smart TV HD'/>
+          <Product5 heading='Surveillance Camera'/>
+          <Product5 heading='Joystick Pro'/>
+        </Flex>
+      </Container>
+      
+    </Section>
+    {/* Top Product end*/}
     </>
   )
 }
