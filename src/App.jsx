@@ -1,18 +1,35 @@
 import React from 'react'
-import Section from './components/Section'
-import Container from './components/Container'
-import Flex from './components/Flex'
+import RootLayOut from './components/RootLayOut';
+import Home from './pages/Home';
+import About from './pages/About';
+import {
+  createRoutesFromElements,
+  createBrowserRouter,
+  Route,
+  RouterProvider
+} from "react-router-dom";
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={<RootLayOut />} >
+         <Route
+         path="/"
+         element={<Home />} >
+         </Route>
+         <Route
+         path="/about"
+         element={<About />} >
+         </Route>
+    </Route>
+  )
+);
 
 const App = () => {
   return (
-   <Section>
-    <Container>
-      <Flex>
-      
-
-      </Flex>
-    </Container>
-   </Section>
+    <RouterProvider router={router} />
   )
 }
 
