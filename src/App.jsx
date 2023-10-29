@@ -1,8 +1,18 @@
 import React from 'react'
+import Section from './components/Section'
+import Container from './components/Container'
+import Flex from './components/Flex'
 
 const App = () => {
   return (
-    <h2 className='bg-purple-500 text-2xl'>This is Tronix Commerce Frontend</h2>
+   <Section>
+    <Container>
+      <Flex>
+      
+
+      </Flex>
+    </Container>
+   </Section>
   )
 }
 
