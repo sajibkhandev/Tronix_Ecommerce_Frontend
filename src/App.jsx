@@ -9,6 +9,7 @@ import {
   RouterProvider
 } from "react-router-dom";
 import ProductDetails from './pages/ProductDetails';
+import Checkout from './pages/Checkout';
 
 
 const router = createBrowserRouter(
@@ -27,6 +28,10 @@ const router = createBrowserRouter(
          <Route
          path="/product"
          element={<ProductDetails />} >
+         </Route>
+         <Route
+         path="/checkout"
+         element={<Checkout />} >
          </Route>
     </Route>
   )
