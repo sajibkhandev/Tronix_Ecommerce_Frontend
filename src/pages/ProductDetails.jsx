@@ -14,9 +14,14 @@ import productIcon3 from '../assets/productIcon3.png'
 
 import {AiFillStar} from 'react-icons/ai'
 import {BsFillHeartFill} from 'react-icons/bs'
+import Review from '../components/Review'
 
 const ProductDetails = () => {
+    let handleSubmit=()=>{
+        
+    }
   return (
+    <>
     <Section className='pt-24'>
         <Container>
             <Flex >
@@ -92,6 +97,62 @@ const ProductDetails = () => {
             </Flex>
         </Container>
     </Section>
+
+    {/* Review Part Start */}
+    <Section className='pb-40'>
+        <Container>
+            <ul className='flex gap-x-10 text-secondary text-2xl font-pop font-medium py-20'>
+                <li className='hover:text-third hover:border-third border-white border-b border-solid pb-4 cursor-pointer list-none'>Reviews (200)</li>
+                <li className='hover:text-third hover:border-third border-white border-b border-solid pb-4 cursor-pointer list-none'>Description</li>
+                <li className='hover:text-third hover:border-third border-white border-b border-solid pb-4 cursor-pointer list-none'>Discussion</li>
+                <li className='hover:text-third hover:border-third border-white border-b border-solid pb-4 cursor-pointer list-none'>Gift Cards</li>
+            </ul>
+            <Flex>
+            <div className='w-1/2 '>
+                <Review user="Vanille"/>
+                <Review user="Maduin"/>
+                <Review user="Samantha"/>
+                <Review user="Roveria"/>
+            </div>
+            <div className='w-1/2 '>
+                <div className='pl-24 border-l border-solid border-primary'>
+                    <h1 className='text-secondary text-lg font-pop font-bold pb-4'>Add Your Review</h1>
+                    <p className='text-primary text-lg font-pop font-normal pb-10'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+                  <form action="" onSubmit={handleSubmit}>
+                  <div>
+                        <label className='text-secondary text-lg font-pop font-normal' htmlFor="name">Name *</label>
+                        <input className='w-full py-4 px-4 border border-solid border-primary rounded-lg mt-4 mb-8' type="text" id="name"/>
+                    </div>
+                    <div>
+                        <label className='text-secondary text-lg font-pop font-normal' htmlFor="email">Email *</label>
+                        <input className='w-full py-4 px-4 border border-solid border-primary rounded-lg mt-4 mb-8' type="text" id="email"/>
+                    </div>
+                    <div>
+                        <label className='text-secondary text-lg font-pop font-normal' htmlFor="review">Review *</label>
+                        <textarea className='w-full h-[120px] py-4 px-4 border border-solid border-primary rounded-lg mt-4 mb-8' type="text" id="review"/>
+                    </div>
+                    <Flex className='gap-x-4'>
+                    <h5 className='text-secondary text-lg font-pop font-medium pb-14'>Rating</h5>
+                    <Flex className='gap-x-2'>
+                    <AiFillStar className='text-2xl text-yellow-500'/>
+                    <AiFillStar className='text-2xl text-yellow-500'/>
+                    <AiFillStar className='text-2xl text-yellow-500'/>
+                    <AiFillStar className='text-2xl text-yellow-500'/>
+                    <AiFillStar className='text-2xl text-yellow-500'/>
+
+                    </Flex>
+                    </Flex>
+                    <Button type="Submit" text="Submit"/>
+                  </form>
+                </div>
+            </div>
+            </Flex>
+        </Container>
+    </Section>
+    {/* Review Part end */}
+    
+    </>
+    
   )
 }
 
