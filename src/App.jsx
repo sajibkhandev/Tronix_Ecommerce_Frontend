@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
+import Cart from './pages/Cart';
 
 
 const router = createBrowserRouter(
@@ -28,6 +29,10 @@ const router = createBrowserRouter(
          <Route
          path="/product"
          element={<ProductDetails />} >
+         </Route>
+         <Route
+         path="/cart"
+         element={<Cart />} >
          </Route>
          <Route
          path="/checkout"

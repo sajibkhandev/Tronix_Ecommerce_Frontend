@@ -9,6 +9,7 @@ import List from '../List'
 import {BiSearch} from 'react-icons/bi'
 import {HiOutlineMail} from 'react-icons/hi'
 import {PiShoppingCart} from 'react-icons/pi'
+import { Link } from 'react-router-dom'
 
 const Navber = () => {
   return (
@@ -20,11 +21,11 @@ const Navber = () => {
           </div>
           <div className='w-6/12'>
             <ul className='flex gap-x-12 h-full items-center justify-center'>
-              <List text="Home"/>
-              <List text="About"/>
-              <List text="Product"/>
-              <List text="Blog"/>
-              <List text="Contact"/>
+              <Link to='/'><List text="Home"/></Link>
+              <Link to='/about'><List text="About"/></Link>
+              <Link to='/product'><List text="Product"/></Link>
+              <Link to='/checkout'> <List text="Checkout"/></Link>
+              <Link to='/cart'><List text="Cart"/></Link>
             </ul>
           </div>
           <div className='w-4/12 relative'>
