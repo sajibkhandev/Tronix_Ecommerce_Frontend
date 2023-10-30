@@ -10,8 +10,15 @@ import {BiSearch} from 'react-icons/bi'
 import {HiOutlineMail} from 'react-icons/hi'
 import {PiShoppingCart} from 'react-icons/pi'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { page } from '../../slices/breadcrumb'
 
 const Navber = () => {
+  let dispatch=useDispatch()
+  let handleClick=(name)=>{
+    dispatch(page(name))
+
+  }
   return (
     <Section className='py-8'>
       <Container>
@@ -21,11 +28,11 @@ const Navber = () => {
           </div>
           <div className='w-6/12'>
             <ul className='flex gap-x-12 h-full items-center justify-center'>
-              <Link to='/'><List text="Home"/></Link>
-              <Link to='/about'><List text="About"/></Link>
-              <Link to='/product'><List text="Product"/></Link>
-              <Link to='/checkout'> <List text="Checkout"/></Link>
-              <Link to='/cart'><List text="Cart"/></Link>
+              <Link onClick={()=>handleClick("Home")} to='/'><List text="Home"/></Link>
+              <Link onClick={()=>handleClick("About")}  to='/about'><List text="About"/></Link>
+              <Link onClick={()=>handleClick("Product")}  to='/product'><List text="Product"/></Link>
+              <Link onClick={()=>handleClick("Checkout")} to='/checkout'> <List text="Checkout"/></Link>
+              <Link onClick={()=>handleClick("Cart")} to='/cart'><List text="Cart"/></Link>
             </ul>
           </div>
           <div className='w-4/12 relative'>

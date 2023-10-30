@@ -11,11 +11,22 @@ import card2 from '../assets/card2.png'
 import card3 from '../assets/card3.png'
 import card4 from '../assets/card4.png'
 import AboutCard2 from '../components/AboutCard2'
+import {FaAngleRight} from 'react-icons/fa'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const About = () => {
+  let data=useSelector((state=>(state.breadcrumbs.previous)))
+  let location=window.location.pathname.replace("/","")
+  
   return (
     <Section>
       <Container>
+        <Flex className='gap-x-4 items-center pt-12'>
+          <p className='text-primary cursor-pointer '><Link to={`${data=="Home"?"/":`/${data}`}`}>{data}</Link></p>
+          <FaAngleRight className='text-primary'/>
+          <p className='first-letter:uppercase text-third cursor-pointer '>{location}</p>
+        </Flex>
         <div className='pt-12 pb-20'>
               <Heading text="About Tronix" className='pb-8 text-center '/>
               <p className='w-[1056px] text-center  mx-auto text-lg text-secondary font-pop font-normal'>We are here to provide a place special for electronic devices. Although we only operated for 2 years but we always provide the best service for customers and all the sellers who use our website. With the hope that it can help improve a better life using various electronic goods with the latest technology, we are all ears to any suggestion from our dear customers</p>

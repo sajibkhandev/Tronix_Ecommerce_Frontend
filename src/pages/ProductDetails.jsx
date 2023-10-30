@@ -14,9 +14,14 @@ import productIcon3 from '../assets/productIcon3.png'
 
 import {AiFillStar} from 'react-icons/ai'
 import {BsFillHeartFill} from 'react-icons/bs'
+import {FaAngleRight} from 'react-icons/fa'
 import Review from '../components/Review'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const ProductDetails = () => {
+    let data=useSelector((state=>(state.breadcrumbs.previous)))
+    let location=window.location.pathname.replace("/","")
     let handleSubmit=()=>{
         
     }
@@ -24,6 +29,7 @@ const ProductDetails = () => {
     <>
     <Section className='pt-24'>
         <Container>
+        
             <Flex >
                 <div className='w-1/2'>
                     <Image src={product1} className='pb-5'/>
@@ -34,6 +40,11 @@ const ProductDetails = () => {
                     </Flex>
                 </div>
                 <div className='w-1/2 pl-24'>
+                  <Flex className='gap-x-4 items-center '>
+                  <p className='text-primary cursor-pointer '><Link to={`${data=="Home"?"/":`/${data}`}`}>{data}</Link></p>
+                  <FaAngleRight className='text-primary'/>
+                  <p className='first-letter:uppercase text-third cursor-pointer '>{location}</p>
+                  </Flex>
                     <Flex  className=' pt-10 pb-5 items-center justify-between'>
                        <div className='flex items-center'>
                        <h6 className='text-secondary text-lg font-pop font-medium mr-3'>5.0</h6>
