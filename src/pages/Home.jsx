@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Section from '../components/Section'
 import Container from '../components/Container'
 import Flex from '../components/Flex'
@@ -28,17 +28,64 @@ import quality from '../assets/quality.png'
 import Product3 from '../components/Product3'
 import Product4 from '../components/Product4'
 import Product5 from '../components/Product5'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
 
 
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const settings = {
+    dots: true,
+    arrows:false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    customPaging: (i) => (
+      <div
+        style={{
+          width: '10px',
+          height: '10px',
+          borderRadius: '5px',
+          backgroundColor: currentSlide === i ? 'red' : 'white',
+          display: 'inline-block',
+          margin: '0 5px',
+        }}
+      />
+    ),
+  };
+  
   return (
+    
     <>
     {/* Banner part start */}
     <Section className='pb-20 pt-8'>
       <Container>
         <Flex className='gap-x-5'>
           <div className='w-8/12'>
-            <Image src={banner1}/>
+          <Slider {...settings}>
+          <div>
+          <Image src={banner1}/>
+          </div>
+          <div>
+          <Image src={banner1}/>
+          </div>
+          <div>
+          <Image src={banner1}/>
+          </div>
+          <div>
+          <Image src={banner1}/>
+          </div>
+          <div>
+          <Image src={banner1}/>
+          </div>
+          <div>
+          <Image src={banner1}/>
+          </div>
+        </Slider>
+            
           </div>
           <div className='w-4/12  flex flex-col justify-between'>
             <Image src={banner2}/>
