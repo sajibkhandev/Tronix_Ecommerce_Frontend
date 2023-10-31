@@ -3,8 +3,22 @@ import Button from './Button'
 import {AiFillStar} from 'react-icons/ai'
 import {BsFillHeartFill} from 'react-icons/bs'
 import Flex from './Flex'
+import { useDispatch } from 'react-redux'
+import { addToCart ,cartOpen} from '../slices/cartSlice'
+import { increment } from '../slices/cartSlice'
 
 const Product5 = ({heading}) => {
+    let dispatch=useDispatch()
+    let handleButton=()=>{
+      dispatch(addToCart({
+        title:heading,
+        price:20,
+        image:"image",
+        quantity:1
+      }))
+      dispatch(cartOpen(true))
+      
+    }
   return (
     <div>
         <div className='w-w376 h-h619 rounded-3xl p-8 border border-solid border-primary'>
@@ -23,7 +37,10 @@ const Product5 = ({heading}) => {
                     <p className=' text-lg text-primary font-pop font-normal'>Sold 99</p>
                 </div>
             <Flex className='gap-x-7 items-center'>
+                <div onClick={handleButton}>
+
             <Button text="Add to Cart"/>
+                </div>
             <BsFillHeartFill className='text-2xl text-primary'/>
             </Flex>
             </div>

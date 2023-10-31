@@ -1,7 +1,21 @@
 import React from 'react'
 import Button from './Button'
+import { useDispatch } from 'react-redux'
+import { addToCart,cartOpen } from '../slices/cartSlice'
+import { increment } from '../slices/cartSlice'
 
 const Product3 = ({heading}) => {
+  let dispatch=useDispatch()
+  let handleButton=()=>{
+    dispatch(addToCart({
+      title:heading,
+      price:20,
+      image:"image",
+      quantity:1
+    }))
+    dispatch(cartOpen(true))
+    
+  }
   return (
     <div>
         <div className='w-w376 h-h602 border border-solid border-primary  rounded-b-3xl mb-6 '>
@@ -16,7 +30,9 @@ const Product3 = ({heading}) => {
                 <p className='text-3xl text-third'>-</p>
                 <p className='text-2xl text-third font-medium font-pop'>$19.99</p>
             </div>
-            <Button text="Add to Cart"/>
+           <div onClick={handleButton}>
+           <Button text="Add to Cart "/>
+           </div>
            
             </div>
         </div>
