@@ -34,6 +34,10 @@ import "slick-carousel/slick/slick.css";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  let [second,setScond]=useState("")
+  let [minute,setMinute]=useState("")
+  let [hour,setHour]=useState("")
+  let [day,setDay]=useState("")
 
   const settings = {
     dots: true,
@@ -57,6 +61,26 @@ const Home = () => {
       />
     ),
   };
+
+ function countdown(){
+  let current=new Date().getTime()
+  let deadline=new Date('2023-11-10T00:00:00')
+  let now=deadline-current
+  let s=Math.floor(now/1000)
+  let m=Math.floor(s/60)
+  let h=Math.floor(m/60)
+  let d=Math.floor(h/24)
+  s%=60
+  m%=60
+  h%=24
+
+  setScond(s=(s<10)?"0"+s:s)
+  setMinute(m=(m<10)?"0"+m:m)
+  setHour(h=(h<10)?"0"+h:h)
+  setDay(d=(d<10)?"0"+d:d)
+ }
+ setTimeout(countdown,1000)
+ 
   
   return (
     
@@ -130,15 +154,15 @@ const Home = () => {
             <h4 className='text-[56px] text-secondary font-mon font-bold'>Flash Sale</h4>
             <div className='flex gap-x-6'>
               <div className='w-[80px] h-[80px] border border-solid border-secondary rounded-2xl flex justify-center items-center flex-col'>
-                <p className='text-2xl text-third font-bold font-pop'>1</p>
+                <p className='text-2xl text-third font-bold font-pop'>{hour}</p>
                 <p className='text-lg text-primary font-normal font-pop'>Hrs</p>
               </div>
               <div className='w-[80px] h-[80px] border border-solid border-secondary rounded-2xl flex justify-center items-center flex-col'>
-                <p className='text-2xl text-third font-bold font-pop'>34</p>
+                <p className='text-2xl text-third font-bold font-pop'>{minute}</p>
                 <p className='text-lg text-primary font-normal font-pop'>Min</p>
               </div>
               <div className='w-[80px] h-[80px] border border-solid border-secondary rounded-2xl flex justify-center items-center flex-col'>
-                <p className='text-2xl text-third font-bold font-pop'>26</p>
+                <p className='text-2xl text-third font-bold font-pop'>{second}</p>
                 <p className='text-lg text-primary font-normal font-pop'>Sec</p>
               </div>
 
