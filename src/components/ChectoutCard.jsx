@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Flex from './Flex'
 import Button from './Button'
+import { useSelector } from 'react-redux'
 
 const ChectoutCard = () => {
+  let cart=useSelector((state)=>(state.cart.cartArray))
+  let [total,setTotal]=useState("")
+  useEffect(()=>{
+      let total=0
+      cart.map(item=>{
+          total+=item.price*item.quantity
+      })
+      setTotal(total)
+
+  },[])
   return (
     <div className='pl-8 pb-40'>
         <div className=' w-full border border-solid border-primary px-7'>
@@ -55,15 +66,16 @@ const ChectoutCard = () => {
                <Flex className='gap-x-8 pb-6'>
                 <p className='text-secondary text-2xl font-medium font-pop'>Total</p>
                </Flex>
-                <p className='text-third text-2xl font-medium font-pop'>$325.00</p>
+                <p className='text-third text-2xl font-medium font-pop'>{total}.00$</p>
             </Flex>
          
           </div>
           <h4 className='text-secondary text-2xl font-medium font-pop pb-8'>Payment</h4>
           <Flex className='justify-between pb-14'>
-          <Button text="Credit Card" className='px-[18px] py-1.5 hover:bg-black hover:border-black hover:text-white bg-white text-red-500'/>
-          <Button text="Bank Transfer" className='px-[18px] py-1.5 hover:bg-black hover:border-black hover:text-white bg-white text-red-500'/>
-          <Button text="Paypal" className='px-[18px] py-1.5 hover:bg-black hover:border-black hover:text-white bg-white text-red-500'/>
+            <button className="text-lg font-pop font-normal px-4 py-2 rounded-lg bg-white text-black border border-solid border-black hover:bg-black hover:text-white duration-500">Credit Card</button>
+            <button className="text-lg font-pop font-normal px-4 py-2 rounded-lg bg-white text-black border border-solid border-black hover:bg-black hover:text-white duration-500">Bank Transfer</button>
+            <button className="text-lg font-pop font-normal px-4 py-2 rounded-lg bg-white text-black border border-solid border-black hover:bg-black hover:text-white duration-500">Paypal</button>
+          
           </Flex>
           <Button text="Checkout" className='w-full mb-3 '/>
           <Button text="Back to Cart" className='w-full mb-3 bg-white text-red-500 hover:bg-red-400 hover:text-white border-white'/>

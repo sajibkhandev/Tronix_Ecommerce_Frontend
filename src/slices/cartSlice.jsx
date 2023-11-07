@@ -44,6 +44,13 @@ export const cartSlice = createSlice({
             if(item.title==action.payload.title){
                 if(item.quantity>1){
                     item.quantity=item.quantity-1
+                }else if(item.quantity>=1){
+                    state.cartArray.map((item,index)=>{
+                        if(item.title==action.payload.title){
+                            state.cartArray.splice(index,1)
+                        }
+                        
+                    })
                 }
                 
             }

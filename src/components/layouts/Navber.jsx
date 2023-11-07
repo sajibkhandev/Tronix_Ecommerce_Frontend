@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Section from '../Section'
 import Flex from '../Flex'
 import Container from '../Container'
+import Button from '../Button'
 import Image from '../Image'
 import logo from '../../assets/logo.png'
 import List from '../List'
@@ -48,8 +49,8 @@ const Navber = () => {
               <Link onClick={()=>handleClick("Home")} to='/'><List text="Home"/></Link>
               <Link onClick={()=>handleClick("About")}  to='/about'><List text="About"/></Link>
               <Link onClick={()=>handleClick("Product")}  to='/product'><List text="Product"/></Link>
-              <Link onClick={()=>handleClick("Checkout")} to='/checkout'> <List text="Checkout"/></Link>
-              <Link onClick={()=>handleClick("Cart")} to='/cart'><List text="Cart"/></Link>
+              <div onClick={()=>handleClick("Blog")} > <List text="Blog"/></div>
+              <div onClick={()=>handleClick("Contact")} ><List text="Contact"/></div>
             </ul>
           </div>
           <div className='w-4/12 relative'>
@@ -71,7 +72,8 @@ const Navber = () => {
         }
         </Flex>
           {cart.map(item=>(
-        <li className='list-none py-4 border-y border-solid border-black '><Flex className='items-center justify-between mx-10'>
+        <li className='list-none py-4 border-y border-solid border-black '>
+          <Flex className='items-center justify-between mx-10'>
         <p className='text-third'><BsFillCheckSquareFill/></p>
         <img src={cartImage} alt=""  className='w-[60px] h-[60px]'/>
         <div>
@@ -86,9 +88,16 @@ const Navber = () => {
             <li>SubTotal: <span className='text-third'>{item.quantity*item.price} </span>$</li>
           </Flex>
         </div>
+        
         <p onClick={()=>dispatch(remove(item))} className='text-third'><RxCross1/></p>
       </Flex></li>
+      
           ))}
+         {cart.length&& <div className='mt-10 flex justify-center gap-x-6'>
+            <Link to='/cart'><Button text="View Cart"/></Link>
+           <Link to="/checkout"> <Button text="Checkout"/></Link>
+          </div>}
+          
           <div className='text-2xl text-seconary font-medium font-pop absolute bottom-5 right-5'>Total: <span className='text-third font-bold'>{total}.00 </span>$</div>
 
         </div>}

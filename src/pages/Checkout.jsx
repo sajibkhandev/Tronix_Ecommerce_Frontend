@@ -6,6 +6,7 @@ import Heading from '../components/Heading'
 import ChectoutCard from '../components/ChectoutCard'
 
 const Checkout = () => {
+  
   return (
    <Section>
     <Container>
